@@ -1,10 +1,7 @@
 import numpy as np
-import cProfile
-import pstats
 
 map = np.array([np.array(list(line)) for line in np.loadtxt('2024/input/dec6_input.txt', dtype = str, comments = None)])
 
-'''
 # part 1
 pos = np.array([np.where(map == '^')[1][0], np.where(map == '^')[0][0]])
 seen_pos = {tuple(pos)}
@@ -21,13 +18,11 @@ while guard_has_escaped == False:
     else:
         guard_has_escaped = True
 print('answ1: ' + str(len(seen_pos)))
-'''
-# part 1
+
+# part 2
 count = 0
-amt = 0
 for obs_x in range(len(map[0])):
     for obs_y in range(len(map)):
-        amt += 1
         pos_dir = np.array([np.where(map == '^')[1][0], np.where(map == '^')[0][0], 0, -1])
         if map[obs_y][obs_x] == '.':
             map[obs_y][obs_x] = '#'
