@@ -44,4 +44,4 @@ for char in coords_per_char:
             mul += 1
             antinode = np.add(coords_combination[0], np.multiply(pos_diff,mul))
 antinodes = np.unique(np.array(antinodes), axis = 0)
-print('ans1: ' + str(len(antinodes)))
+print('ans2: ' + str(len(antinodes)))
