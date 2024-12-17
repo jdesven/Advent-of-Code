@@ -15,7 +15,7 @@ for y in range(len(map)):
 # part 1
 antinodes = []
 for char in coords_per_char:
-    coords_combinations = np.array(list(combinations(char, 2)))
+    coords_combinations = list(combinations(char, 2))
     for coords_combination in coords_combinations:
         pos_diff = np.subtract(coords_combination[0], coords_combination[1])
         for antinode in [np.add(coords_combination[0], pos_diff), np.subtract(coords_combination[1], pos_diff)]:
