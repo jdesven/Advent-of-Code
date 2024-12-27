@@ -17,10 +17,14 @@ prizes = [[int(row.split(',')[0]), int(row.split(',')[1])] for row in [re.sub(r'
 
 For every claw machine, the A button moves the claw by $(a_X,a_Y)$, while the B button moves the claw by $(b_X,b_Y)$. The prize is located at $(p_X,p_Y)$. The parameters $a_X$, $a_Y$, $b_X$, $b_Y$, $p_X$, and $p_Y$ are known parameters from the input file. If we represent the number of times we press the A button and B button as $T_A$ and $T_B$, respectively, the problem becomes [a system of linear equations](https://en.wikipedia.org/wiki/System_of_linear_equations) with two unknowns.
 
-$$a_XT_A+b_XT_B=p_X\\\\
-a_YT_A+b_YT_B=p_Y$$
+$$
+\begin{aligned}
+a_XT_A+b_XT_B=p_X \\
+a_YT_A+b_YT_B=p_Y
+\end{aligned}
+$$
 
-The solution to either linear equation can be rewritten as $T_A=-bT_B/a+p/a$, which forms a linear line in $(X,Y)$ space. The solution(s) to the full system of equations thus equal the point(s) where these lines intersect. Since both lines are linear, [there can only be 0, 1, or infinitely many intersection points](https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection). However, since all constants and unknowns in the system are in $ℝ_{>0}$ (positive, non-zero integers), $T_A$ cannot surpass $p_X/a_X$, or the claw will overshoot $p_X$. Since there is a finite amount of numbers between 1 and $p_X/a_X$, an infinite amount of solutions can never occur. This ensures that any claw machine with a solution, has one and only one solution. As a result, we will not have to test which solution has the lowest token cost (even though the puzzle text implies otherwise).
+The solution to either linear equation can be rewritten as $T_A=-bT_B/a+p/a$, which forms a linear line in $(X,Y)$ space. The solution(s) to the full system of equations thus equal the point(s) where these lines intersect. Since both lines are linear, [there can only be 0, 1, or infinitely many intersection points](https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection). However, since all constants and unknowns in the system are in $\mathbb{R}_{>0}$ (positive, non-zero integers), $T_A$ cannot surpass $p_X/a_X$, or the claw will overshoot $p_X$. Since there is a finite amount of numbers between 1 and $p_X/a_X$, an infinite amount of solutions can never occur. This ensures that any claw machine with a solution, has one and only one solution. As a result, we will not have to test which solution has the lowest token cost (even though the puzzle text implies otherwise).
 
 The system of linear equations can be written in matrix multiplication form $A\bf{T}=\bf{p}$, where $A$ is the matrix representation of $a_i$ and $b_i$, $\bf{T}$ the column vector representation of $T_i$, and $\bf{p}$ the column vector representation of $p_i$. If $A_i$ is the matrix formed by replacing the $i$-th column of $A$ by the column vector $\bf{p}$, then [Cramer's theorem](https://en.wikipedia.org/wiki/Cramer%27s_rule) states that the solutions to the system of linear equations can be calculated from the [determinants](https://en.wikipedia.org/wiki/Determinant) of the matrices $A$ and $A_i$.
 
