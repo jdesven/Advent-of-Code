@@ -12,10 +12,9 @@ def bfs_shortest_path(bytes):
     coords_seen = {0 + 0j}
     potential_paths = [[0 + 0j]]
     path_i = 0
-    dirs = [-1, 1, -1j, 1j]
     while path_i < len(potential_paths):
         path = potential_paths[path_i]
-        for dir in dirs:
+        for dir in [-1, 1, -1j, 1j]:
             next_pos = path[-1] + dir
             if next_pos == 70 + 70j:
                 solution = set(path)
