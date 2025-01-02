@@ -1,14 +1,14 @@
 with open('2024/input/dec18_input.txt', 'r') as file:
     input = [int(line[0]) + int(line[1]) * 1j for line in [line.split(',') for line in file.read().splitlines()]]
 
-def construct_empty_map():
+def bfs_shortest_path(bytes):
     map = {}
     for x in range(71):
         for y in range(71):
             map[x + y * 1j] = '.'
-    return map
+    for coord in input[:bytes]:
+        map[coord] = '#'
 
-def bfs_shortest_path(map):
     coords_seen = {0 + 0j}
     potential_paths = [[0 + 0j]]
     path_i = 0
@@ -27,19 +27,15 @@ def bfs_shortest_path(map):
     return solution if 'solution' in locals() else set()
 
 # part 1
-map = construct_empty_map()
-for coord in input[:1024]:
-    map[coord] = '#'
-print('ans1: ' + str(len(bfs_shortest_path(map))))
+print('ans1: ' + str(len(bfs_shortest_path(1024))))
 
 # part 2
-map = construct_empty_map()
-valid_path = bfs_shortest_path(map)
-for i_byte, byte in enumerate(input):
-    map[byte] = '#'
-    if byte in valid_path:
-        valid_path = bfs_shortest_path(map)
-        if len(valid_path) == 0:
-            blocking_byte = byte
-
-print('ans2: ' + str(int(blocking_byte.real)) + ',' + str(int(blocking_byte.imag)))
+lower_bound = 1024
+upper_bound = len(input)
+while upper_bound > lower_bound + 1:
+    mid_point = int((lower_bound + upper_bound) / 2)
+    if len(bfs_shortest_path(mid_point)) == 0:
+        upper_bound = mid_point
+    else:
+        lower_bound = mid_point
+print('ans2: ' + str(int(input[upper_bound - 1].real)) + ',' + str(int(input[upper_bound - 1].imag)))
