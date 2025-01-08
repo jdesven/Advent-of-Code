@@ -1,17 +1,11 @@
-import pandas as pd
+with open('2024/input/dec1_input.txt', 'r') as file:
+    nums = [[int(num.split('   ')[0]), int(num.split('   ')[1])] for num in [nums for nums in file.read().splitlines()]]
 
-df = pd.read_csv('2024/input/dec1_input.csv', names = ['left', 'right'], delimiter = '   ', engine = 'python')
-df_left = df['left'].sort_values(ignore_index=True)
-df_right = df['right'].sort_values(ignore_index=True)
+nums_left = sorted([row[0] for row in nums])
+nums_right = sorted([row[1] for row in nums])
 
 # part 1
-sum = 0
-for i in range(len(df)):
-    sum += abs(df_left[i] - df_right[i])
-print('answer 1: ' + str(sum))
+print(sum([abs(nums_left[i] - nums_right[i]) for i in range(len(nums))]))
 
 # part 2
-sum = 0
-for i in range(len(df)):
-    sum += df_left[i] * len(df_right[df_right == df_left[i]])
-print('answer 2: ' + str(sum))
+print(sum(nums_left[i] * nums_right.count(nums_left[i]) for i in range(len(nums))))
