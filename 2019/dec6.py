@@ -2,7 +2,6 @@ with open('2019/input/dec6_input.txt', 'r') as file:
     input = [line.split(')') for line in file.read().splitlines()]
 
 orbitting = {orbit[1]: orbit[0] for orbit in input}
-
 count = 0
 for orbit in orbitting:
     cur_orbit = orbit
@@ -12,16 +11,15 @@ for orbit in orbitting:
 print(count)
 
 orbitted = {orbit[1]:{} for orbit in input}
-
 for orbit_start in [orbit for orbit in orbitted.keys() if orbit not in orbitting.values()]:
-    print(orbit_start)
     dict = {}
     cur_orbit = orbit_start
     while cur_orbit != 'COM':
-        orbitted[cur_orbit] = dict
-        for key in dict.keys():
+        for key, value in dict.items():
+            if key not in orbitted[cur_orbit].keys():
+                orbitted[cur_orbit][key] = value
             dict[key] += 1
-        dict[cur_orbit] = 1
+        dict[cur_orbit] = 0
         cur_orbit = orbitting[cur_orbit]
-    print(orbitted['G1T'])
-    exit()
+orbital_transfers = [orbit[1]['YOU'] + orbit[1]['SAN'] for orbit in orbitted.items() if 'YOU' in orbit[1] and 'SAN' in orbit[1]]
+print(min(orbital_transfers))
