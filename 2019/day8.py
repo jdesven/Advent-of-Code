@@ -1,4 +1,4 @@
-with open('2019/input/dec8_input.txt', 'r') as file:
+with open('2019/input/day8_input.txt', 'r') as file:
     input = [int(char) for char in file.read()]
 
 # part 1

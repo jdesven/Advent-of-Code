@@ -1,4 +1,4 @@
-with open('2019/input/dec2_input.txt', 'r') as file:
+with open('2019/input/day4_input.txt', 'r') as file:
     input = [int(num) for num in file.read().split(',')]
 
 def calculate_output(input, noun, verb):

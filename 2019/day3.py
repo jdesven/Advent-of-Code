@@ -1,4 +1,4 @@
-with open('2019/input/dec3_input.txt', 'r') as file:
+with open('2019/input/day3_input.txt', 'r') as file:
     wires = [line.split(',') for line in file.read().splitlines()]
 
 def calculate_path(wire):

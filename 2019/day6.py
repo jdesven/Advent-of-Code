@@ -1,4 +1,4 @@
-with open('2019/input/dec6_input.txt', 'r') as file:
+with open('2019/input/day6_input.txt', 'r') as file:
     input = [line.split(')') for line in file.read().splitlines()]
 
 orbitting = {orbit[1]: orbit[0] for orbit in input}

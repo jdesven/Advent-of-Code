@@ -1,6 +1,6 @@
 from math import gcd
 
-with open('2019/input/dec10_input.txt', 'r') as file:
+with open('2019/input/day10_input.txt', 'r') as file:
     input = [line for line in file.read().splitlines()]
 asteroids = set()
 for i_line, line in enumerate(input):
