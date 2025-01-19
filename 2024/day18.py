@@ -1,4 +1,4 @@
-with open('2024/input/dec18_input.txt', 'r') as file:
+with open('2024/input/day18_input.txt', 'r') as file:
     input = [int(line[0]) + int(line[1]) * 1j for line in [line.split(',') for line in file.read().splitlines()]]
 
 def bfs_shortest_path(bytes):

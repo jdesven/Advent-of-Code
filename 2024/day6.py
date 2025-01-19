@@ -1,6 +1,6 @@
 import numpy as np
 
-map = np.array([np.array(list(line)) for line in np.loadtxt('2024/input/dec6_input.txt', dtype = str, comments = None)])
+map = np.array([np.array(list(line)) for line in np.loadtxt('2024/input/day6_input.txt', dtype = str, comments = None)])
 
 # part 1
 pos = np.array([np.where(map == '^')[1][0], np.where(map == '^')[0][0]])

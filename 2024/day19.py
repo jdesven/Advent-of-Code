@@ -1,4 +1,4 @@
-with open('2024/input/dec19_input.txt', 'r') as file:
+with open('2024/input/day19_input.txt', 'r') as file:
     towels_string, patterns_string = file.read().split('\n\n')
 towels = towels_string.split(', ')
 patterns = patterns_string.split('\n')

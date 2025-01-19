@@ -3,7 +3,7 @@ from itertools import combinations_with_replacement
 from sympy.utilities.iterables import multiset_permutations
 from math import log
 
-with open('2024/input/dec7_input.txt', 'r') as file:
+with open('2024/input/day7_input.txt', 'r') as file:
     txt = np.array(file.read().splitlines())
 tests = [int(row.split(':')[0]) for row in txt]
 nums = [np.array(list(map(int, row.split(' ')))) for row in np.array([row.split(':')[1][1:] for row in txt])]

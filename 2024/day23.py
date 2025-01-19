@@ -1,6 +1,6 @@
 from itertools import combinations
 
-with open('2024/input/dec23_input.txt', 'r') as file:
+with open('2024/input/day23_input.txt', 'r') as file:
     input = [line.split('-') for line in file.read().splitlines()]
 
 connections = {}

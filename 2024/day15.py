@@ -1,4 +1,4 @@
-with open('2024/input/dec15_input.txt', 'r') as file:
+with open('2024/input/day15_input.txt', 'r') as file:
     map_str, instructions_str = file.read().split('\n\n')
 map = {}
 for i_line, line in enumerate(map_str.split('\n')):

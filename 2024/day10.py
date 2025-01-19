@@ -1,6 +1,6 @@
 import numpy as np
 
-map = np.array([list(map(int,(line))) for line in np.loadtxt('2024/input/dec10_input.txt', dtype = str, comments = None)])
+map = np.array([list(map(int,(line))) for line in np.loadtxt('2024/input/day10_input.txt', dtype = str, comments = None)])
 
 # part 1
 score = 0

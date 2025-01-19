@@ -1,7 +1,7 @@
 import re
 from math import prod
 
-with open('2024/input/dec14_input.txt', 'r') as file:
+with open('2024/input/day14_input.txt', 'r') as file:
     txt = file.read().splitlines()
 input = [[int(num) for num in row] for row in [row.split(',')[1:5] for row in [re.sub(r'=',',',re.sub(r'[^-0-9=,]','',line)) for line in txt]]]
 

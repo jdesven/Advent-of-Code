@@ -1,6 +1,6 @@
 import re
 
-with open('2024/input/dec17_input.txt', 'r') as file:
+with open('2024/input/day17_input.txt', 'r') as file:
     register_str, program_str = file.read().split('\n\n')
 reg_a, reg_b, reg_c = [int(num) for num in re.sub('[^0-9\n]','',register_str).splitlines()]
 program = [int(num) for num in re.sub('[^0-9,]','',program_str).split(',')]

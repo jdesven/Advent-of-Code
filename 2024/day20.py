@@ -1,4 +1,4 @@
-with open('2024/input/dec20_input.txt', 'r') as file:
+with open('2024/input/day20_input.txt', 'r') as file:
     map = set()
     for i_line, line in enumerate(file.read().splitlines()):
         for i_char, char in enumerate(line):

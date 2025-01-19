@@ -1,6 +1,6 @@
 from math import log10, pow
 
-with open('2024/input/dec11_input.txt', 'r') as file:
+with open('2024/input/day11_input.txt', 'r') as file:
     current_line = dict([int(num), 1] for num in file.read().split(' '))
 
 for _ in range(75):

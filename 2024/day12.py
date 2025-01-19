@@ -1,6 +1,6 @@
 import numpy as np
  
-rows = [line for line in np.loadtxt('2024/input/dec12_input.txt', dtype = str)]
+rows = [line for line in np.loadtxt('2024/input/day12_input.txt', dtype = str)]
 map = {}
 for i_row, row in enumerate(rows):
     for i_char in range(len(row)):

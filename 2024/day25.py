@@ -1,4 +1,4 @@
-with open('2024/input/dec25_input.txt', 'r') as file:
+with open('2024/input/day25_input.txt', 'r') as file:
     schematics = file.read().split('\n\n')
 
 keys = set()

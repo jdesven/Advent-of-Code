@@ -1,6 +1,6 @@
 import numpy as np
 
-with open('2024/input/dec9_input.txt', 'r') as file:
+with open('2024/input/day9_input.txt', 'r') as file:
     txt = np.array([int(num) for num in file.read()])
 
 # part 1

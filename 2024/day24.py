@@ -1,4 +1,4 @@
-with open('2024/input/dec24_input.txt', 'r') as file:
+with open('2024/input/day24_input.txt', 'r') as file:
     initial_string, gates_string = file.read().split('\n\n')
 initial = [[gate.split(': ')[0], int(gate.split(': ')[1])] for gate in initial_string.splitlines()]
 gates = [gate.split(' ') for gate in gates_string.replace(' ->', '').splitlines()]
