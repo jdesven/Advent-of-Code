@@ -6,15 +6,7 @@ def calculate_path(wire):
     location = 0j
     location_i = 0
     for instruction in wire:
-        match instruction[0]:
-            case 'L':
-                dir = -1 + 0j
-            case 'U':
-                dir = -1j
-            case 'R':
-                dir = 1 + 0j
-            case 'D':
-                dir = 1j
+        dir = {'L': -1 + 0j, 'U': -1j, 'R': 1 + 0j, 'D': 1j}[instruction[0]]
         for i in range(1, int(instruction[1:]) + 1):
             location_i += 1
             if location + i * dir not in path:
