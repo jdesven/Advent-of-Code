@@ -1,25 +1,19 @@
+import re
+
 def file_to_str(path):
     with open(path, 'r') as file:
         raw_str = file.read()
     return raw_str
 
-def lines_to_list(file: str, seperator = '', cast = str, read_file = True):
+def lines_to_list(file: str, cast = str, read_file = True, regex = ''):
     raw_str = file_to_str(file) if read_file == True else file
-    if cast == int:
-        input = [int(line) for line in raw_str.splitlines()]
-    else:
-        if seperator == '':
-            input = [line for line in raw_str.splitlines()]
-        else:
-            input = [line.split(seperator) for line in raw_str.splitlines()]
-    return input
+    return [list(map(cast, [line]))[0] if regex == '' else list(map(cast, [''.join(re.findall(regex, line))]))[0] for line in raw_str.splitlines()]
 
 def seperator_to_list(file: str, seperator = '' , cast = str, read_file = True):
     raw_str = file_to_str(file) if read_file == True else file
     if seperator != '':
         raw_str = raw_str.split(seperator)
-    if cast == int:
-        input = [int(element) for element in raw_str]
-    else:
-        input = [element for element in raw_str]
-    return input
+    return [element if cast == str else list(map(cast, [element]))[0] for element in raw_str]
+
+def lines_to_list_of_list(file: str, seperator = '', cast = str, regex = ''):
+    return [seperator_to_list(line, seperator = seperator, cast = cast, read_file = False) for line in lines_to_list(file, regex = regex)]

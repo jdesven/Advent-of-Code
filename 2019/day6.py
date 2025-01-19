@@ -1,5 +1,5 @@
-from pyhelper.pyimport import lines_to_list
-input = lines_to_list('2019/input/day6_input.txt', seperator = ')')
+from pyhelper.pyimport import lines_to_list_of_list
+input = lines_to_list_of_list('2019/input/day6_input.txt', seperator = ')')
 
 orbitting = {orbit[1]: orbit[0] for orbit in input}
 count = 0

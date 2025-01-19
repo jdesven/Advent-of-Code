@@ -1,5 +1,5 @@
-from pyhelper.pyimport import lines_to_list
-wires = lines_to_list('2019/input/day3_input.txt', seperator = ',')
+from pyhelper.pyimport import lines_to_list_of_list
+wires = lines_to_list_of_list('2019/input/day3_input.txt', seperator = ',')
 
 def calculate_path(wire):
     path = {}
