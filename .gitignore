@@ -2,12 +2,5 @@
 *.csv
 *.txt
 
-# C++ build files
-*.exe
-*.ilk
-*.obj
-*.pdb
-tasks.json
-
 # Python
 __pycache__
