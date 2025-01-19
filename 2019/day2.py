@@ -1,5 +1,5 @@
-with open('2019/input/day4_input.txt', 'r') as file:
-    input = [int(num) for num in file.read().split(',')]
+from pyhelper.pyimport import seperator_to_list
+input = seperator_to_list('2019/input/day2_input.txt', seperator = ',', cast = int)
 
 def calculate_output(input, noun, verb):
     mod_input = [input[0]] + [noun] + [verb] + input[3:]

@@ -8,3 +8,6 @@
 *.obj
 *.pdb
 tasks.json
+
+# Python
+__pycache__

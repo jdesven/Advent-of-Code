@@ -1,5 +1,5 @@
-with open('2019/input/day8_input.txt', 'r') as file:
-    input = [int(char) for char in file.read()]
+from pyhelper.pyimport import seperator_to_list
+input = seperator_to_list('2019/input/day8_input.txt', cast = int)
 
 # part 1
 img_size = [25, 6]

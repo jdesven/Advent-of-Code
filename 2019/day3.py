@@ -1,5 +1,5 @@
-with open('2019/input/day3_input.txt', 'r') as file:
-    wires = [line.split(',') for line in file.read().splitlines()]
+from pyhelper.pyimport import lines_to_list
+wires = lines_to_list('2019/input/day3_input.txt', seperator = ',')
 
 def calculate_path(wire):
     path = {}

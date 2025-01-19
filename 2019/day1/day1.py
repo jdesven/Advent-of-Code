@@ -1,5 +1,5 @@
-with open('2019/input/day1_input.txt', 'r') as file:
-    masses = [int(num) for num in file.read().splitlines()]
+from pyhelper.pyimport import lines_to_list
+masses = lines_to_list('2019/input/day1_input.txt', cast = int)
 
 fuel_requirements = [int(mass / 3) - 2 for mass in masses]
 print(sum(fuel_requirements))

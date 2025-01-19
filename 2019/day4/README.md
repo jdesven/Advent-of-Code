@@ -2,7 +2,7 @@
 ## Import
 
 ```python
-with open('input/day4_input.txt', 'r') as file:
+with open('2019/input/day4_input.txt', 'r') as file:
     range_min, range_max = [int(num) for num in file.read().split('-')]
 ```
 

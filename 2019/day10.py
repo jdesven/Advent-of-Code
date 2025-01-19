@@ -1,7 +1,8 @@
 from math import gcd
 
-with open('2019/input/day10_input.txt', 'r') as file:
-    input = [line for line in file.read().splitlines()]
+from pyhelper.pyimport import lines_to_list
+input = lines_to_list('2019/input/day10_input.txt')
+
 asteroids = set()
 for i_line, line in enumerate(input):
     for i_char, char in enumerate(line):
