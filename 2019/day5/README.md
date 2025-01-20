@@ -1,5 +1,5 @@
 [Link to puzzle](https://adventofcode.com/2019/day/5)\
-[Previous Intcode puzzle](https://github.com/jdesven/Advent-of-Code/blob/5b1c5c37e3d3673eac6729ff14dcd3bcc9d27b38/2019/day2/README.md)
+[Previous Intcode puzzle](https://github.com/jdesven/Advent-of-Code/blob/main/2019/day2/README.md)
 ## Import
 
 ```python
