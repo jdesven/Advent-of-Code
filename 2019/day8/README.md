@@ -1,8 +1,10 @@
 [Link to puzzle](https://adventofcode.com/2019/day/8)
 ## Import
 
+```python
 from pyhelper.pyimport import seperator_to_list
 input = seperator_to_list('2019/input/day8_input.txt', cast = int)
+```
 
 ## Solution
 
