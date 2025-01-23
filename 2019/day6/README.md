@@ -1,4 +1,4 @@
-[Link to puzzle](https://adventofcode.com/2019/day/6)\
+[Link to puzzle](https://adventofcode.com/2019/day/6)
 ## Import
 
 ```python
