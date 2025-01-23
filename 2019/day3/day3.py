@@ -21,10 +21,8 @@ for location, i_location in path_1.items():
     if location in path_2:
         crossing_points.add((location, i_location, path_2[location]))
 
-# part 1
 distances_to_center = [abs(int(crossing_point[0].real)) + abs(int(crossing_point[0].imag)) for crossing_point in crossing_points]
 print(min(distances_to_center))
 
-# part 2
 distances_travelled = [crossing_point[1] + crossing_point[2] for crossing_point in crossing_points]
 print(min(distances_travelled))
