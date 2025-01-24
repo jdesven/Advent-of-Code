@@ -1,13 +1,7 @@
 from math import gcd
 
-from pyhelper.pyimport import lines_to_list
-input = lines_to_list('2019/input/day10_input.txt')
-
-asteroids = set()
-for i_line, line in enumerate(input):
-    for i_char, char in enumerate(line):
-        if char == '#':
-            asteroids.add(i_line *1j + i_char)
+from pyhelper.pyimport import grid_to_complex_set
+asteroids = grid_to_complex_set('2019/input/day10_input.txt', {'#'})
 
 detectable = {}
 for station in asteroids:

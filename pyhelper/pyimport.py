@@ -17,3 +17,12 @@ def seperator_to_list(file: str, seperator = '' , cast = str, read_file = True):
 
 def lines_to_list_of_list(file: str, seperator = '', cast = str, regex = ''):
     return [seperator_to_list(line, seperator = seperator, cast = cast, read_file = False) for line in lines_to_list(file, regex = regex)]
+
+def grid_to_complex_set(file: str, relevant_chars: set):
+    lines = lines_to_list(file)
+    output_set = set()
+    for i_line, line in enumerate(lines):
+        for i_char, char in enumerate(line):
+            if char in relevant_chars:
+                output_set.add(i_line * 1j + i_char)
+    return output_set
