@@ -15,6 +15,13 @@ def seperator_to_list(file: str, seperator = '' , cast = str, read_file = True):
         raw_str = raw_str.split(seperator)
     return [element if cast == str else list(map(cast, [element]))[0] for element in raw_str]
 
+def seperator_to_list_to_dict(file: str, seperator = '', cast = str, read_file = True):
+    input_list = seperator_to_list(file, seperator = seperator, cast = cast, read_file = read_file)
+    output_dict = {}
+    for i_val, val in enumerate(input_list):
+        output_dict[i_val] = val
+    return output_dict
+
 def lines_to_list_of_list(file: str, seperator = '', cast = str, regex = ''):
     return [seperator_to_list(line, seperator = seperator, cast = cast, read_file = False) for line in lines_to_list(file, regex = regex)]
 
