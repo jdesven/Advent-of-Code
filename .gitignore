@@ -1,6 +1,10 @@
 # Advent of Code input files
+input
 *.csv
 *.txt
 
 # Python
 __pycache__
+
+#Visual Studio Code
+.vscode
