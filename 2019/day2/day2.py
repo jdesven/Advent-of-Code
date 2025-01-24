@@ -1,22 +1,20 @@
-from pyhelper.pyimport import seperator_to_list
-input = seperator_to_list('2019/input/day2_input.txt', seperator = ',', cast = int)
+from pyhelper.pyimport import seperator_to_list_to_dict
+program = seperator_to_list_to_dict('2019/input/day2_input.txt', seperator = ',', cast = int)
+from importlib import import_module
+intcode = getattr(import_module('2019.intcode.intcode'), 'intcode')
 
-def calculate_output(input, noun, verb):
-    mod_input = [input[0]] + [noun] + [verb] + input[3:]
-    for i in range (0, len(input), 4):
-        match mod_input[i]:
-            case 1:
-                mod_input[mod_input[i + 3]] = mod_input[mod_input[i + 1]] + mod_input[mod_input[i + 2]]
-            case 2:
-                mod_input[mod_input[i + 3]] = mod_input[mod_input[i + 1]] * mod_input[mod_input[i + 2]]
-            case 99:
-                return mod_input[0]
+def run_until_terminate(com):
+    last_status = None
+    while last_status != 99:
+        _, last_status = com.calc_step()
 
-# part 1
-print(calculate_output(input, 12, 2))
+com = intcode({**program, 1: 12, 2: 2}, [])
+run_until_terminate(com)
+print(com.program[0])
 
-# part 2
 for noun in range(100):
     for verb in range(100):
-        if calculate_output(input, noun, verb) == 19690720:
+        com = intcode({**program, 1: noun, 2: verb}, [])
+        run_until_terminate(com)
+        if com.program[0] == 19690720:
             print(100 * noun + verb)
