@@ -12,7 +12,7 @@ def lines_to_list(file: str, cast = str, read_file = True, regex = ''):
 def seperator_to_list(file: str, seperator = '' , cast = str, read_file = True):
     raw_str = file_to_str(file) if read_file == True else file
     if seperator != '':
-        raw_str = raw_str.split(seperator)
+        raw_str = [part for part in raw_str.split(seperator) if part != '']
     return [element if cast == str else list(map(cast, [element]))[0] for element in raw_str]
 
 def seperator_to_list_to_dict(file: str, seperator = '', cast = str, read_file = True):
