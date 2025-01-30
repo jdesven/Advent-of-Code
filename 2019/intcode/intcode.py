@@ -1,11 +1,11 @@
 class intcode:
-    ptr = 0
-    ptr_inputs = 0
-    relative_offset = 0
 
     def __init__(self, program: dict, starting_inputs: list):
         self.program = program
         self.inputs = starting_inputs
+        self.ptr = 0
+        self.ptr_inputs = 0
+        self.relative_offset = 0
 
     def get_var_pos_mode(self, mode_ptr: int):
         return self.program[mode_ptr]
