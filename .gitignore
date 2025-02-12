@@ -6,5 +6,10 @@ input
 # Python
 __pycache__
 
+# Rust
+debug/
+target/
+*.pdb
+
 #Visual Studio Code
 .vscode
