@@ -34,7 +34,7 @@ def find_functions(instructions, possible_functions):
                     if len(reconstruction) == len_before_extending:
                         break
                 if reconstruction == instructions:
-                    return main_routine, A, B, C
+                    return main_routine, A, B, C, 'n'
 
 instructions = []
 dir = -1j
@@ -60,7 +60,6 @@ for func in find_functions(instructions, possible_functions):
         for char in str(instruction):
             robot.inputs.append(ord(str(char)))
         robot.inputs.append(ord(',' if i_instruction < len(func) else '\n'))
-robot.inputs.extend([ord(char) for char in ['n', '\n']])
 while True:
     out, status = robot.calc_step()
     if out != None:
