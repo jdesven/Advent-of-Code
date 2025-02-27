@@ -12,7 +12,7 @@ while True:
     if out in [ord(char) for char in ('#', '.', '^')]:
         map[pos] = chr(out)
         pos += 1
-    elif out == 10:
+    elif out == ord('\n'):
         pos = int(pos.imag) * 1j + 1j
     if status != None:
         break
