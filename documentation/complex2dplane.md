@@ -5,3 +5,5 @@ Some Python scripts in this repository use a complex plane to store the informat
 2. Changing the position becomes a simple statement. Suppose we want to change some position `pos` by some direction `dir`. In a complex plane, this can be done using `pos = pos + dir`. Using a list of coordinates, this would become `pos = [pos[0] + dir[0], pos[1] + dir[1]]`.
 
 3. If the map contains holes, then these holes do not need to be part of the map if a dictionary of coordinates is used. This cannot be done when nested lists are used.
+
+4. Rotation by 90 degrees is a simple statement. A 90 degrees rotation left or right equals multiplying by -1j or 1j, respectively. For example, a direction pointing east `dir = 1 + 0j` rotated 90 degrees left becomes `dir = (1 + 0j) * -1j = 0 - 1j`, which is indeed north. Doing such a computation using `dir = [1, 0]` would require matrix multiplication.
