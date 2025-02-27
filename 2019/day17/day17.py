@@ -23,16 +23,14 @@ def find_functions(instructions, possible_functions):
     for A in [func for func in possible_functions if func[0] == instructions[0]]:
         for B in possible_functions:
             for C in ([func for func in possible_functions if func[-1] == instructions[-1]] if A[-1] != instructions[-1] else possible_functions):
-                i = 0
                 reconstruction = []
                 main_routine = []
-                while i < len(instructions):
+                while len(reconstruction) < len(instructions):
                     len_before_extending = len(reconstruction)
                     for func in [A, B, C]:
-                        if tuple(instructions[i:i+len(func)]) == func:
+                        if tuple(instructions[len(reconstruction):len(reconstruction)+len(func)]) == func:
                             reconstruction.extend(func)
                             main_routine.append({A: 'A', B: 'B', C: 'C'}[func])
-                            i += len(func)
                     if len(reconstruction) == len_before_extending:
                         break
                 if reconstruction == instructions:
