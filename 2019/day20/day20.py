@@ -22,35 +22,44 @@ for pos, label in teleports.items():
         teleport_reverse[label].add(pos)
 
 positions_seen = set([starting_pos])
-paths = [[starting_pos]]
+positions = [starting_pos]
+steps = 0
 while ending_pos not in positions_seen:
-    paths_next = []
-    for path in paths:
-        for dir in [-1j, 1j, -1, 1]:
-            next_pos = path[-1] + dir
+    positions_next = []
+    for pos in positions:
+        for dir in (-1j, 1j, -1, 1):
+            next_pos = pos + dir
             if grid.get(next_pos) == '.' and next_pos not in positions_seen:
-                paths_next.append(path + [next_pos])
+                positions_next.append(next_pos)
                 positions_seen.add(next_pos)
-        if path[-1] in teleports:
-            teleport_destination = [loc for loc in teleport_reverse[teleports[path[-1]]] if loc != path[-1]][0]
-            paths_next.append(path + [teleport_destination])
+        if pos in teleports:
+            teleport_destination = [loc for loc in teleport_reverse[teleports[pos]] if loc != pos][0]
+            positions_next.append(teleport_destination)
             positions_seen.add(teleport_destination)
-    paths = paths_next
-print(len(paths[0]) - 1)
+    positions = positions_next
+    steps += 1
+print(steps)
 
-positions_seen = set(tuple(0, starting_pos))
-paths = [[0, starting_pos]]
-while ending_pos not in positions_seen:
-    paths_next = []
-    for path in paths:
-        for dir in [-1j, 1j, -1, 1]:
-            next_pos = path[-1] + dir
-            if grid.get(next_pos) == '.' and next_pos not in positions_seen:
-                paths_next.append(path + [next_pos])
-                positions_seen.add(next_pos)
-        if path[-1] in teleports:
-            teleport_destination = [loc for loc in teleport_reverse[teleports[path[-1]]] if loc != path[-1]][0]
-            paths_next.append(path + [teleport_destination])
-            positions_seen.add(teleport_destination)
-    paths = paths_next
-print(len(paths[0]) - 1)
+
+positions_seen = set((0, starting_pos))
+positions = [(0, starting_pos)]
+steps = 0
+map_dim = (max([int(coord.real) for coord in grid.keys()]), max([int(coord.imag) for coord in grid.keys()]))
+while (0, ending_pos) not in positions_seen:
+    positions_next = []
+    for pos in positions:
+        for dir in (-1j, 1j, -1, 1):
+            next_pos = pos[1] + dir
+            if grid.get(next_pos) == '.' and (pos[0], next_pos) not in positions_seen:
+                positions_next.append((pos[0], next_pos))
+                positions_seen.add((pos[0], next_pos))
+        if pos[1] in teleports:
+            level_change = -1 if int(pos[1].real) in (2, map_dim[0] - 2) or int(pos[1].imag) in (2, map_dim[1] - 2) else 1
+            if not (pos[0] == 0 and level_change == -1):
+                teleport_destination = [loc for loc in teleport_reverse[teleports[pos[1]]] if loc != pos[1]][0]
+                if (pos[0] + level_change, teleport_destination) not in positions_seen:
+                    positions_next.append((pos[0] + level_change, teleport_destination))
+                    positions_seen.add((pos[0] + level_change, teleport_destination))
+    positions = positions_next
+    steps += 1
+print(steps)
